@@ -46,6 +46,14 @@ You can use ventoy, simple USB, iso file with proxmox ve, virtualbox, vmware etc
 ## Notes
 This PKGBUILD is incomplete, I just started it. It's a good point to start to collaborate.
 
+I'm starting with penguins-eggs-manjaro, removing the follow packages from dependencies:
+* manjaro-tools-iso
+* erofs-utils
+^ glibc-locales
+
+Of course, now there is the need to replace them with archlinux packages, the main question
+is to produce an initramfs for live.
+
 # How to create a new release (memo for me)
 To create a new release, just edit followig lines in PKBUILD, essentiallt pkgver and _commit.
 
