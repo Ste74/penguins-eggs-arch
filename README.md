@@ -17,8 +17,8 @@ pamac install bash-completion
 
 Copy and paste follow instructions
 ```
-git clone https://github.com/pieroproietti/penguins-eggs-manjaro
-cd penguins-eggs-manjaro
+git clone https://github.com/pieroproietti/penguins-eggs-archilinux
+cd penguins-eggs-archilinux
 makepkg -srcCi
 ```
 ## Create your first iso, just CLI installer krill
@@ -44,19 +44,7 @@ You can use ventoy, simple USB, iso file with proxmox ve, virtualbox, vmware etc
 
 
 ## Notes
-
-### manjaro-tools-iso 
-
-From manjaro-toos-iso really we need just this, it work the same:
-
-Copy and paste follow instructions:
-```
-git clone https://gitlab.manjaro.org/tools/development-tools/manjaro-tools
-sudo cp manjaro-tools/initcpio/hooks/ /usr/lib/initcpio/ -R
-sudo cp manjaro-tools/initcpio/install/ /usr/lib/initcpio/ -R
-sudo cp manjaro-tools/initcpio/script/miso_shutdown /etc/initcpio/
-```
-
+This PKGBUILD is incomplete, I just started it. It's a good point to start to collaborate.
 
 # How to create a new release (memo for me)
 To create a new release, just edit followig lines in PKBUILD, essentiallt pkgver and _commit.
