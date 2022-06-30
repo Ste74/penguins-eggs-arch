@@ -9,9 +9,16 @@ arch=('any')
 url="https://penguins-eggs.net"
 license=('GPL2')
 # groups=
-# removed: 'manjaro-tools-iso' 'erofs-utils' 'glibc-locales'
+# dipendenze archiso
+# archiso: 	'arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs' 'erofs-utils' 'findutils'
+# 			'grub' 'gzip' 'libarchive' 'libisoburn' 'mtools'
+# 			'openssl' 'pacman' 'sed' 'squashfs-tools'
+
+# dependecies compared to manjaro
+# - removed: 'manjaro-tools-iso'  'glibc-locales'
+# - added> 'grub'
 depends=('arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs'  'erofs-utils' 'findutils' 
-		 'gzip' 'libarchive' 'libisoburn' 'lvm2' 'mtools' 
+		 'grub' 'gzip' 'libarchive' 'libisoburn' 'lvm2' 'mtools' 
 		 'nodejs' 'openssl' 'pacman' 'parted' 'rsync' 'sed' 'syslinux' 'squashfs-tools')
 optdepends=('bash-completion: type eggs commands more quickly'
 			'calamares: system installer GUI' )
