@@ -18,7 +18,7 @@ license=('GPL2')
 # - removed: 'manjaro-tools-iso'  'glibc-locales'
 # - added> 'grub'
 depends=('archiso' 'arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs'  'erofs-utils' 'findutils' 
-		 'grub' 'gzip' 'libarchive' 'libisoburn' 'lvm2' 'mtools' 
+		 'grub' 'gzip' 'libarchive' 'libisoburn' 'lvm2' 'mtools' 'mkinitcpio-archiso'
 		 'nodejs' 'openssl' 'pacman' 'parted' 'rsync' 'sed' 'syslinux' 'squashfs-tools')
 optdepends=('bash-completion: type eggs commands more quickly'
 			'calamares: system installer GUI' )
@@ -31,7 +31,7 @@ makedepends=('git' 'npm')
 options=('!strip') # rimozioni varie, ma prende tempo...
 install=$pkgname.install
 _url_release="https://github.com/pieroproietti/penguins-eggs"
-_branch_release="archlinux"
+_branch_release="master"
 _url_manjaro_tools="https://gitlab.manjaro.org/tools/development-tools/manjaro-tools"
 source=("git+${_url_release}.git#branch=${_branch_release}")
 #  we need too: "git+${_url_manjaro_tools}.git#branch=${_branch_release}"
