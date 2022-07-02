@@ -17,7 +17,7 @@ license=('GPL2')
 # dependecies compared to manjaro
 # - removed: 'manjaro-tools-iso'  'glibc-locales'
 # - added> 'grub'
-depends=('arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs'  'erofs-utils' 'findutils' 
+depends=('archiso' 'arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs'  'erofs-utils' 'findutils' 
 		 'grub' 'gzip' 'libarchive' 'libisoburn' 'lvm2' 'mtools' 
 		 'nodejs' 'openssl' 'pacman' 'parted' 'rsync' 'sed' 'syslinux' 'squashfs-tools')
 optdepends=('bash-completion: type eggs commands more quickly'
