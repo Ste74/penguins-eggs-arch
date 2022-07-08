@@ -19,7 +19,7 @@ license=('GPL2')
 # - added> 'grub'
 depends=('archiso' 'arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs'  'erofs-utils' 'findutils' 
 		 'grub' 'gzip' 'libarchive' 'libisoburn' 'lvm2' 'mtools' 'mkinitcpio-archiso'
-		 'nodejs' 'openssl' 'pacman' 'parted' 'rsync' 'sed' 'syslinux' 'squashfs-tools')
+		 'nodejs' 'openssl' 'pacman' 'parted' 'rsync' 'sed' 'syslinux' 'squashfs-tools' 'util-linux')
 optdepends=('bash-completion: type eggs commands more quickly'
 			'calamares: system installer GUI' )
 makedepends=('git' 'npm')
@@ -51,6 +51,7 @@ pkgver() {
 
 # build 
 build() {
+	npm i pmpm -g
 	cd ${srcdir}/${pkgname}
 	pnpm i
 	pnpm run build
