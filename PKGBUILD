@@ -58,7 +58,7 @@ build() {
 
 # package
 package() {
-	npm i pmpm -g
+	npm i pnpm -g
 
 	install -d "${pkgdir}/usr/lib/${pkgname}"
 
