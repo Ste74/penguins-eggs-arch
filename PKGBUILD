@@ -52,14 +52,14 @@ pkgver() {
 # build 
 build() {
 	cd ${srcdir}/${pkgname}
+	sudo npm i pnpm -g
 	pnpm i
 	pnpm run build
 }
 
 # package
 package() {
-	npm i pnpm -g
-
+	
 	install -d "${pkgdir}/usr/lib/${pkgname}"
 
 	cd ${srcdir}/${pkgname}
