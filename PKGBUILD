@@ -51,7 +51,6 @@ pkgver() {
 
 # build 
 build() {
-	npm i pmpm -g
 	cd ${srcdir}/${pkgname}
 	pnpm i
 	pnpm run build
@@ -59,6 +58,8 @@ build() {
 
 # package
 package() {
+	npm i pmpm -g
+
 	install -d "${pkgdir}/usr/lib/${pkgname}"
 
 	cd ${srcdir}/${pkgname}
