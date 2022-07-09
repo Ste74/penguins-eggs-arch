@@ -19,7 +19,8 @@ license=('GPL2')
 # - added> 'grub'
 depends=('archiso' 'arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs'  'erofs-utils' 'findutils' 
 		 'grub' 'gzip' 'libarchive' 'libisoburn' 'lsb-release' 'lvm2' 'mtools' 'mkinitcpio-archiso' 'mkinitcpio-nfs-utils'
-		 'nbd' 'nodejs' 'openssl' 'pacman' 'parted' 'pv' 'rsync' 'sed' 'syslinux' 'squashfs-tools' 'util-linux')
+		 'nbd' 'nodejs' 'openssl' 'pacman' 'pacman-contrib'
+		 'parted' 'pv' 'rsync' 'sed' 'syslinux' 'squashfs-tools' 'util-linux')
 optdepends=('bash-completion: type eggs commands more quickly'
 			'calamares: system installer GUI' )
 makedepends=('git' 'npm')
