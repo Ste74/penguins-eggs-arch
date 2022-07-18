@@ -1,6 +1,6 @@
 # Maintainer: Stefano Capitani <stefano_at_manjaro_org> Piero Proietti <piero.proietti_at_gmail.com>
 pkgname=penguins-eggs
-pkgver=9.1.33 # autoupdate
+pkgver=9.1.35 # autoupdate
 pkgrel=1
 # pkgdir
 # pkgbase
