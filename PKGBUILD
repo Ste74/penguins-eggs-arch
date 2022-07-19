@@ -17,7 +17,7 @@ license=('GPL2')
 # dependecies compared to manjaro
 # - removed: 'manjaro-tools-iso'  'glibc-locales'
 # - added> 'grub'
-depends=('arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs'  'erofs-utils' 'findutils' 
+depends=('archiso' 'arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs'  'erofs-utils' 'findutils' 
 		 'grub' 'gzip' 'libarchive' 'libisoburn' 'lsb-release' 'lvm2' 'mtools' 'mkinitcpio-archiso' 'mkinitcpio-nfs-utils'
 		 'nbd' 'nodejs' 'openssl' 'pacman' 'pacman-contrib'
 		 'parted' 'pv' 'rsync' 'sed' 'syslinux' 'squashfs-tools' 'util-linux')
