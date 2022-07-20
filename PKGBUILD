@@ -1,6 +1,6 @@
 # Maintainer: Stefano Capitani <stefano_at_manjaro_org> Piero Proietti <piero.proietti_at_gmail.com>
 pkgname=penguins-eggs
-pkgver=9.1.35 # autoupdate
+pkgver=9.1.36 # autoupdate
 pkgrel=1
 # pkgdir
 # pkgbase
@@ -17,7 +17,7 @@ license=('GPL2')
 # dependecies compared to manjaro
 # - removed: 'manjaro-tools-iso'  'glibc-locales'
 # - added> 'grub'
-depends=('archiso' 'arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs'  'erofs-utils' 'findutils' 
+depends=('arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs'  'erofs-utils' 'findutils' 
 		 'grub' 'gzip' 'libarchive' 'libisoburn' 'lsb-release' 'lvm2' 'mtools' 'mkinitcpio-archiso' 'mkinitcpio-nfs-utils'
 		 'nbd' 'nodejs' 'openssl' 'pacman' 'pacman-contrib'
 		 'parted' 'pv' 'rsync' 'sed' 'syslinux' 'squashfs-tools' 'util-linux')
