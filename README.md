@@ -8,17 +8,24 @@ git clone https://github.com/pieroproietti/penguins-eggs-archilinux
 cd penguins-eggs-archilinux
 makepkg -srcCi
 ```
-## Create your first iso, just CLI installer krill
+
+## Configuration (default)
+
+```sudo eggs dad -d```
+
+## Create your first iso, just with CLI installer krill
 ```sudo eggs produce --fast```
 
-## Create your first desktop iso, installer calamares
+## Create your first desktop iso, with GUI installer calamares
+
 ```sudo eggs calamares --install```
+
 ```sudo eggs produce --fast```
 
 ## Copy your iso image and boot the son of your system
 You can use ventoy, simple USB, iso file with proxmox ve, virtualbox, vmware etc.
 
-       
+
 # Develop and collaborations link
 * penguins-eggs discussion on [manjaro-forum](https://forum.manjaro.org/t/penguins-eggs-help-needed-for-manjaro-compatibility/96799)
 * penguins-eggs PKGBUILD on [community](https://gitlab.manjaro.org/packages/community/penguins-eggs)
