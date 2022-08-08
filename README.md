@@ -34,6 +34,3 @@ You can use ventoy, simple USB, iso file with proxmox ve, virtualbox, vmware etc
 * penguins-eggs [book](https://penguins-eggs.net/book/)
 * penguins-eggs [blog](https://penguins-eggs.net)
 
-(*) Here we refere always to that, but I hope with same help to solve the problems and have it in community again.
-
-
