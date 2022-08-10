@@ -1,11 +1,11 @@
 # penguins-eggs-arch
 
-## Build and install penguins-eggs
+## Build and install penguins-eggs on Arch
 
 Copy and paste follow instructions
 ```
-git clone https://github.com/pieroproietti/penguins-eggs-archilinux
-cd penguins-eggs-archilinux
+git clone https://github.com/pieroproietti/penguins-eggs-arch
+cd penguins-eggs-arch
 makepkg -srcCi
 ```
 
@@ -21,6 +21,13 @@ makepkg -srcCi
 ```sudo eggs calamares --install```
 
 ```sudo eggs produce --fast```
+
+### clone a system with users uncrypted
+You can prefere to clone your system, all users will be saved uncrypted on the live.
+```sudo eggs produce --fast --clone```
+
+### backup a system with users crypted
+Or you can prefere to backup your system: all users will be saved crypted in a LUKS volume inside the live system and will be restored with krill during installation.
 
 ## Copy your iso image and boot the son of your system
 You can use ventoy, simple USB, iso file with proxmox ve, virtualbox, vmware etc.
