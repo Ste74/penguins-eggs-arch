@@ -16,6 +16,8 @@ makepkg -srcCi
 ## add calamares installer (optional)
 ```sudo eggs calamares --install```
 
+(*) Note: this option don't work at the moment on Arch.
+
 ## Create your first iso (default)
 All the users will be removed from your live system.
 
