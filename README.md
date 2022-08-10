@@ -13,24 +13,33 @@ makepkg -srcCi
 
 ```sudo eggs dad -d```
 
-## Create your first iso, just with CLI installer krill
-```sudo eggs produce --fast```
-
-## Create your first desktop iso, with GUI installer calamares
-
+## add calamares installer (optional)
 ```sudo eggs calamares --install```
 
+## Create your first iso (default)
+All the users will be removed from your live system.
+
 ```sudo eggs produce --fast```
 
-### clone a system with users uncrypted
-You can prefere to clone your system, all users will be saved uncrypted on the live.
+### Create a live system including all users
+You can use the flag --clone, all users will be saved uncrypted on the live.
+
 ```sudo eggs produce --fast --clone```
 
-### backup a system with users crypted
-Or you can prefere to backup your system: all users will be saved crypted in a LUKS volume inside the live system and will be restored with krill during installation.
+### Create a live system including all users crypted
+
+You can add the flag --backup: all users will be saved crypted in a LUKS volume inside the live system. The users will be not accessible on the live, but will be restored with krill during installation.
+
+```sudo eggs produce --fast --backup```
+
+### More compressed?
+
+```sudo eggs produce --max``` 
+
+
 
 ## Copy your iso image and boot the son of your system
-You can use ventoy, simple USB, iso file with proxmox ve, virtualbox, vmware etc.
+You can use ventoy, simple USB with balena etcher or similar, iso file with proxmox ve, virtualbox, vmware etc.
 
 
 # Develop and collaborations link
@@ -39,4 +48,3 @@ You can use ventoy, simple USB, iso file with proxmox ve, virtualbox, vmware etc
 * penguins-eggs [sources](https://github.com/pieroproietti/penguins-eggs)
 * penguins-eggs [book](https://penguins-eggs.net/book/)
 * penguins-eggs [blog](https://penguins-eggs.net)
-
