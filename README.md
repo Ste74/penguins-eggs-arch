@@ -2,12 +2,21 @@
 
 ## Build and install penguins-eggs on Arch
 
-Copy and paste follow instructions
+### stable
+Copy and paste follow instructions 
+```
+git clone https://aur.archlinux.org/penguins-eggs.git
+cd penguins-eggs
+makepkg -srcCi
+```
+### developer
+Copy and paste follow instructions 
 ```
 git clone https://github.com/pieroproietti/penguins-eggs-arch
 cd penguins-eggs-arch
 makepkg -srcCi
 ```
+
 
 ## Configuration (default)
 
