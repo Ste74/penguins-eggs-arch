@@ -1,104 +1,72 @@
-# Maintainer: Stefano Capitani <stefano_at_manjaro_org> Piero Proietti <piero.proietti_at_gmail.com>
+# Maintainer: Piero Proietti <piero.proietti_at_gmail.com>
+# Contributor: Stefano Capitani <stefano_at_manjaro_org>
+# Contributor: Muflone http://www.muflone.com/contacts/english/
+# Contributor: osiixy <osiixy at gmail dot com>
+
 pkgname=penguins-eggs
-pkgver=9.1.36 # autoupdate
+pkgver=9.2.1
 pkgrel=1
-# pkgdir
-# pkgbase
-pkgdesc="Console utility to remaster and reinstall your system."
+pkgdesc="A terminal utility which allows you to remaster your system and redistribute it as an ISO image, on a USB stick or through the network via PXE remote boot"
 arch=('any')
-url="https://penguins-eggs.net"
+url='https://penguins-eggs.net'
 license=('GPL2')
-# groups=
-# dipendenze archiso
-# archiso: 	'arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs' 'erofs-utils' 'findutils'
-# 			'grub' 'gzip' 'libarchive' 'libisoburn' 'mtools'
-# 			'openssl' 'pacman' 'sed' 'squashfs-tools'
+options=('!strip')
+makedepends=('npm')
+depends=('arch-install-scripts' 'dosfstools' 'erofs-utils' 'findutils' 'grub'
+         'libarchive' 'libisoburn' 'lsb-release' 'lvm2' 'mtools'
+         'mkinitcpio-archiso' 'mkinitcpio-nfs-utils' 'nbd' 'nodejs'
+         'pacman-contrib' 'parted' 'python' 'procps-ng' 'pv' 'rsync' 'syslinux'
+         'squashfs-tools' 'xdg-utils')
+optdepends=('bash-completion: enable eggs commands automatic completion'
+            'calamares: system installer GUI')
+source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/pieroproietti/${pkgname}/archive/v${pkgver}.tar.gz")
+sha256sums=('264761bf66154e5bf6f96364d64a4d81fce4839f61e80a901160cc46f517cb0c')
 
-# dependecies compared to manjaro
-# - removed: 'manjaro-tools-iso'  'glibc-locales'
-# - added> 'grub'
-depends=('arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs'  'erofs-utils' 'findutils' 
-		 'grub' 'gzip' 'libarchive' 'libisoburn' 'lsb-release' 'lvm2' 'mtools' 'mkinitcpio-archiso' 'mkinitcpio-nfs-utils'
-		 'nbd' 'nodejs' 'openssl' 'pacman' 'pacman-contrib'
-		 'parted' 'pv' 'rsync' 'sed' 'syslinux' 'squashfs-tools' 'util-linux')
-optdepends=('bash-completion: type eggs commands more quickly'
-			'calamares: system installer GUI' )
-makedepends=('git' 'npm')
-# checkdepends
-# provides
-# conflicts
-# replaces
-# backup
-options=('!strip') # rimozioni varie, ma prende tempo...
-install=$pkgname.install
-_url_release="https://github.com/pieroproietti/penguins-eggs"
-_branch_release="master"
-_url_manjaro_tools="https://gitlab.manjaro.org/tools/development-tools/manjaro-tools"
-source=("git+${_url_release}.git#branch=${_branch_release}")
-#  we need too: "git+${_url_manjaro_tools}.git#branch=${_branch_release}"
-changelog=changelog.md
-# noextract
-# md5sums
-# sha1sums
-sha256sums=('SKIP')
-
-
-
-# pkgver
-pkgver() {
-	cd ${srcdir}/${pkgname}
-	grep 'version' package.json | awk 'NR==1 {print $2 }' | awk -F '"' '{print $2}'
-}
-
-# build 
 build() {
-	cd ${srcdir}/${pkgname}
-	sudo npm i pnpm -g
-	pnpm i
-	pnpm run build
+  cd "${pkgname}-${pkgver}"
+  # Install pnpm into "pnpm-dir"
+  npm set prefix "pnpm-dir"
+  npm install -g pnpm
+  # Build lib
+  pnpm-dir/bin/pnpm install
+  pnpm-dir/bin/pnpm run build
 }
 
-# package
 package() {
-	
-	install -d "${pkgdir}/usr/lib/${pkgname}"
+  cd "${pkgname}-${pkgver}"
 
-	cd ${srcdir}/${pkgname}
-	install -Dm644 package.json -t "${pkgdir}/usr/lib/${pkgname}/"
+  # Fix permissions
+  chown root:root "lib" "node_modules"
+  # Fix paths for node modules
+  find node_modules -type f -print0 | xargs --null sed -i "s#${srcdir}/${pkgname}-${pkgver}/#/usr/lib/eggs/#"
 
-	# We need them on /usr/lib/ not in /opt
-	# I don't see problems. To change in /opt it's 
-	# will be possible too, but need changes of sources
-	cp -r ./addons "${pkgdir}/usr/lib/${pkgname}/"
-	cp -r ./assets "${pkgdir}/usr/lib/${pkgname}/"
-	cp -r ./bin "${pkgdir}/usr/lib/${pkgname}/"
-	cp -r ./conf "${pkgdir}/usr/lib/${pkgname}/"
-	cp -r ./lib "${pkgdir}/usr/lib/${pkgname}/"
-	cp -r ./LICENSE "${pkgdir}/usr/lib/${pkgname}/"
-	cp -r ./node_modules "${pkgdir}/usr/lib/${pkgname}/"
-	cp -r ./mkinitcpio "${pkgdir}/usr/lib/${pkgname}/"
-	cp -r ./pnpm-lock.yaml "${pkgdir}/usr/lib/${pkgname}/"
-	cp -r ./README.md "${pkgdir}/usr/lib/${pkgname}/"
-	cp -r ./scripts "${pkgdir}/usr/lib/${pkgname}/"
+  # We need them on /usr/lib/ not in /opt
+  # I don't see problems. To change in /opt it's 
+  # will be possible too, but need changes of sources
+  install -m 755 -d "${pkgdir}/usr/lib/${pkgname}"
+  cp -r -t "${pkgdir}/usr/lib/${pkgname}/" addons assets bin conf lib node_modules mkinitcpio pnpm-lock.yaml scripts
+  install -m 644 -D package.json -t "${pkgdir}/usr/lib/${pkgname}/"
+  # Install documentation
+  install -m 755 -d "${pkgdir}/usr/share/doc/${pkgname}/"
+  install -m 644 -D README.md "${pkgdir}/usr/share/doc/${pkgname}/"
 
-	# Symlink executable
-	install -d "${pkgdir}/usr/bin"
-	ln -s "/usr/lib/${pkgname}/bin/run" "${pkgdir}/usr/bin/eggs"
+  # Symlink executable
+  install -m 755 -d "${pkgdir}/usr/bin"
+  ln -s "/usr/lib/${pkgname}/bin/run" "${pkgdir}/usr/bin/eggs"
 
-	# bash completions
-	install -d "${pkgdir}/usr/share/bash-completion/completions"
-	mv "${pkgdir}/usr/lib/${pkgname}/scripts/eggs.bash" "${pkgdir}/usr/share/bash-completion/completions/"
+  # Install shell completion files
+  install -m 755 -d "${pkgdir}/usr/share/bash-completion/completions"
+  mv "${pkgdir}/usr/lib/${pkgname}/scripts/eggs.bash" "${pkgdir}/usr/share/bash-completion/completions/"
+  install -m 755 -d "${pkgdir}/usr/share/zsh/functions/Completion/Zsh/"
+  mv "${pkgdir}/usr/lib/${pkgname}/scripts/_eggs" "${pkgdir}/usr/share/zsh/functions/Completion/Zsh/"
 
-	# zsh completions
-	install -d "${pkgdir}/usr/share/zsh/functions/Completion/Zsh/"
-	mv "${pkgdir}/usr/lib/${pkgname}/scripts/_eggs" "${pkgdir}/usr/share/zsh/functions/Completion/Zsh/"
+  # Install man page
+  install -m 644 -D manpages/doc/man/eggs.roll.gz "${pkgdir}/usr/share/man/man1/eggs.1.gz"
 
-	# man page
-	install -Dm644 manpages/doc/man/eggs.roll.gz "${pkgdir}/usr/share/man/man1/eggs.1.gz"
+  # Install desktop files
+  install -m 644 -D "assets/${pkgname}.desktop" "${pkgdir}/usr/share/applications/${pkgname}.desktop"
 
-	# desktop link
-	install -Dm644 "assets/${pkgname}.desktop" -t "${pkgdir}/usr/share/applications/"
-
-	# icon
-	install -Dm644 assets/eggs.png -t "${pkgdir}/usr/share/pixmaps/"
+  # Install icons
+  install -m 644 -D assets/eggs.png -t "${pkgdir}/usr/share/pixmaps/"
 }
+
