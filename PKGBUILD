@@ -20,7 +20,7 @@ depends=('arch-install-scripts' 'dosfstools' 'erofs-utils' 'findutils' 'grub'
 optdepends=('bash-completion: enable eggs commands automatic completion'
             'calamares: system installer GUI')
 source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/pieroproietti/${pkgname}/archive/v${pkgver}.tar.gz")
-sha256sums=('0e976b2dc8b20f00579ebf18fcd755f67a75600c5441e17513b3a1a43d7a1ca4')
+sha256sums=('c25925f594cc0d41386d4bd88befb0cd5e158e92e4619a0bdfcea9da6a6e6722')
 
 build() {
   cd "${pkgname}-${pkgver}"
