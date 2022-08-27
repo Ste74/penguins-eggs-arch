@@ -61,7 +61,7 @@ package() {
   mv "${pkgdir}/usr/lib/${pkgname}/scripts/_eggs" "${pkgdir}/usr/share/zsh/functions/Completion/Zsh/"
 
   # Install man page
-  install -m 644 -D manpages/doc/man/eggs.roll.gz "${pkgdir}/usr/share/man/man1/eggs.1.gz"
+  install -m 644 -D manpages/doc/man/eggs.1.gz "${pkgdir}/usr/share/man/man1/eggs.1.gz"
 
   # Install desktop files
   install -m 644 -D "assets/${pkgname}.desktop" "${pkgdir}/usr/share/applications/${pkgname}.desktop"
