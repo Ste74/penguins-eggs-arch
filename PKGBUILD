@@ -45,7 +45,7 @@ package() {
   # I don't see problems. To change in /opt it's 
   # will be possible too, but need changes of sources
   install -m 755 -d "${pkgdir}/usr/lib/${pkgname}"
-  cp -r -t "${pkgdir}/usr/lib/${pkgname}/" addons assets bin conf dist node_modules mkinitcpio pnpm-lock.yaml scripts
+  cp -r -t "${pkgdir}/usr/lib/${pkgname}/" addons assets bin conf dist ipxe node_modules mkinitcpio pnpm-lock.yaml scripts
   install -m 644 -D package.json -t "${pkgdir}/usr/lib/${pkgname}/"
   # Install documentation
   install -m 755 -d "${pkgdir}/usr/share/doc/${pkgname}/"
