@@ -21,7 +21,7 @@ optdepends=('bash-completion: enable eggs commands automatic completion'
             'calamares: system installer GUI')
 source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/pieroproietti/${pkgname}/archive/v${pkgver}.tar.gz")
 
-sha256sums=("15dddbb4f229274ec67f6576cbbac076176c079d1d8c43d1e27b6d679b765cd1")
+sha256sums=("3bbdd293a4dbf83464d9a77ea35c840c598439c818783fcc2d231c0d95a5dd2a")
 
 build() {
   cd "${pkgname}-${pkgver}"
