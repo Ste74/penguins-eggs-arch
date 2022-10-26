@@ -4,7 +4,7 @@
 # Contributor: osiixy <osiixy at gmail dot com>
 
 pkgname=penguins-eggs
-pkgver=9.2.3
+pkgver=9.3.4
 pkgrel=1
 pkgdesc="A terminal utility which allows you to remaster your system and redistribute it as an ISO image, on a USB stick or through the network via PXE remote boot"
 arch=('any')
@@ -15,12 +15,13 @@ makedepends=('npm')
 depends=('arch-install-scripts' 'dosfstools' 'erofs-utils' 'findutils' 'grub'
          'libarchive' 'libisoburn' 'lsb-release' 'lvm2' 'mtools'
          'mkinitcpio-archiso' 'mkinitcpio-nfs-utils' 'nbd' 'nodejs'
-         'pacman-contrib' 'parted' 'python' 'procps-ng' 'pv' 'rsync' 'syslinux'
-         'squashfs-tools' 'xdg-utils')
+         'pacman-contrib' 'parted' 'python' 'procps-ng' 'pv' 'rsync' 
+         'sshfs' 'syslinux' 'squashfs-tools' 'xdg-utils')
 optdepends=('bash-completion: enable eggs commands automatic completion'
             'calamares: system installer GUI')
 source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/pieroproietti/${pkgname}/archive/v${pkgver}.tar.gz")
-sha256sums=('00a96b59db0a56b931231394a909f037e83f76837da85d639ff85df9525bd5ff')
+
+sha256sums=("10a0ff4a28a758600ca53fb57e673082114267ab76f13a5541e97205440e799a")
 
 build() {
   cd "${pkgname}-${pkgver}"
@@ -29,14 +30,14 @@ build() {
   npm install -g pnpm
   # Build lib
   pnpm-dir/bin/pnpm install
-  pnpm-dir/bin/pnpm run build
+  pnpm-dir/bin/pnpm build
 }
 
 package() {
   cd "${pkgname}-${pkgver}"
 
   # Fix permissions
-  chown root:root "lib" "node_modules"
+  chown root:root "dist" "node_modules"
   # Fix paths for node modules
   find node_modules -type f -print0 | xargs --null sed -i "s#${srcdir}/${pkgname}-${pkgver}/#/usr/lib/eggs/#"
 
@@ -44,7 +45,7 @@ package() {
   # I don't see problems. To change in /opt it's 
   # will be possible too, but need changes of sources
   install -m 755 -d "${pkgdir}/usr/lib/${pkgname}"
-  cp -r -t "${pkgdir}/usr/lib/${pkgname}/" addons assets bin conf lib node_modules mkinitcpio pnpm-lock.yaml scripts
+  cp -r -t "${pkgdir}/usr/lib/${pkgname}/" addons assets bin conf dist node_modules mkinitcpio pnpm-lock.yaml scripts
   install -m 644 -D package.json -t "${pkgdir}/usr/lib/${pkgname}/"
   # Install documentation
   install -m 755 -d "${pkgdir}/usr/share/doc/${pkgname}/"
