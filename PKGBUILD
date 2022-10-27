@@ -10,6 +10,24 @@ pkgdesc="A terminal utility which allows you to remaster your system and redistr
 arch=('any')
 url='https://penguins-eggs.net'
 license=('GPL2')
+
+# from branch (develop)
+# _url_release="https://github.com/pieroproietti/penguins-eggs"
+# _branch_release="master"
+# source=("git+${_url_release}.git#branch=${_branch_release}")
+# sha256sums=('SKIP')
+# pkgver() {
+# 	cd ${srcdir}/${pkgname}
+#   grep 'version' package.json | awk 'NR==1 {print $2 }' | awk -F '"' '{print $2}'
+# 	cd ..
+# 	mv ${srcdir}/${pkgname} ${srcdir}/${pkgname}-${pkgver}
+# }
+
+# from release
+source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/pieroproietti/${pkgname}/archive/v${pkgver}.tar.gz")
+sha256sums=('e494b4654dccdfa278ca33e1072634da1f8938804007eb3a036bcd333bd86fdd')
+
+
 options=('!strip')
 makedepends=('npm')
 depends=('arch-install-scripts' 'dosfstools' 'erofs-utils' 'findutils' 'grub'
@@ -21,7 +39,6 @@ optdepends=('bash-completion: enable eggs commands automatic completion'
             'calamares: system installer GUI')
 source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/pieroproietti/${pkgname}/archive/v${pkgver}.tar.gz")
 
-sha256sums=("d63dfce55ee6ab06d4d937a9037fa7610f4f004ca0dae6c78c90be94e01fc9c1")
 
 build() {
   cd "${pkgname}-${pkgver}"
