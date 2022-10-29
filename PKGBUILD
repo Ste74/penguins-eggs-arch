@@ -4,7 +4,7 @@
 # Contributor: osiixy <osiixy at gmail dot com>
 
 pkgname=penguins-eggs
-pkgver=9.3.6
+pkgver=9.3.7 # autoupdat
 pkgrel=1
 pkgdesc="A terminal utility which allows you to remaster your system and redistribute it as an ISO image, on a USB stick or through the network via PXE remote boot"
 arch=('any')
@@ -12,21 +12,20 @@ url='https://penguins-eggs.net'
 license=('GPL2')
 
 # from branch (develop)
-# _url_release="https://github.com/pieroproietti/penguins-eggs"
-# _branch_release="master"
-# source=("git+${_url_release}.git#branch=${_branch_release}")
-# sha256sums=('SKIP')
-# pkgver() {
-# 	cd ${srcdir}/${pkgname}
-#   grep 'version' package.json | awk 'NR==1 {print $2 }' | awk -F '"' '{print $2}'
-# 	cd ..
-# 	mv ${srcdir}/${pkgname} ${srcdir}/${pkgname}-${pkgver}
-# }
+#_url_release="https://github.com/pieroproietti/penguins-eggs"
+#_branch_release="master"
+#source=("git+${_url_release}.git#branch=${_branch_release}")
+#sha256sums=('SKIP')
+#pkgver() {
+#	cd ${srcdir}/${pkgname}
+#  grep 'version' package.json | awk 'NR==1 {print $2 }' | awk -F '"' '{print $2}'
+#	cd ..
+#	mv ${srcdir}/${pkgname} ${srcdir}/${pkgname}-${pkgver}
+#}
 
 # from release
 source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/pieroproietti/${pkgname}/archive/v${pkgver}.tar.gz")
-sha256sums=('2bc82ec51c7e0829999873b802111577703c5cf56c8f917f82be72298a905b4a')
-
+sha256sums=('6e0cba0dd4009a5f422f90da80b516436b090ff0e0331203b60a0eb96191421e')
 
 options=('!strip')
 makedepends=('npm')
