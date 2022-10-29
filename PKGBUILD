@@ -4,7 +4,7 @@
 # Contributor: osiixy <osiixy at gmail dot com>
 
 pkgname=penguins-eggs
-pkgver=9.3.5
+pkgver=9.3.6
 pkgrel=1
 pkgdesc="A terminal utility which allows you to remaster your system and redistribute it as an ISO image, on a USB stick or through the network via PXE remote boot"
 arch=('any')
@@ -25,7 +25,7 @@ license=('GPL2')
 
 # from release
 source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/pieroproietti/${pkgname}/archive/v${pkgver}.tar.gz")
-sha256sums=('e494b4654dccdfa278ca33e1072634da1f8938804007eb3a036bcd333bd86fdd')
+sha256sums=('2bc82ec51c7e0829999873b802111577703c5cf56c8f917f82be72298a905b4a')
 
 
 options=('!strip')
