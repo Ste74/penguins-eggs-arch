@@ -12,20 +12,20 @@ url='https://penguins-eggs.net'
 license=('GPL2')
 
 # from branch (develop)
-_url="https://github.com/pieroproietti/penguins-eggs"
-_branch="master"
-source=("git+${_url}.git#branch=${_branch}")
-sha256sums=('SKIP')
-pkgver() {
-	 cd ${srcdir}/${pkgname}
-   grep 'version' package.json | awk 'NR==1 {print $2 }' | awk -F '"' '{print $2}'
-	 cd ..
-	 mv ${srcdir}/${pkgname} ${srcdir}/${pkgname}-${pkgver}
-}
+#_url="https://github.com/pieroproietti/penguins-eggs"
+#_branch="master"
+#source=("git+${_url}.git#branch=${_branch}")
+#sha256sums=('SKIP')
+#pkgver() {
+#	 cd ${srcdir}/${pkgname}
+#   grep 'version' package.json | awk 'NR==1 {print $2 }' | awk -F '"' '{print $2}'#
+#	  cd ..
+#	 mv ${srcdir}/${pkgname} ${srcdir}/${pkgname}-${pkgver}
+#}
 
 # from release
-#source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/pieroproietti/${pkgname}/archive/v${pkgver}.tar.gz")
-#sha256sums=('6e0cba0dd4009a5f422f90da80b516436b090ff0e0331203b60a0eb96191421e')
+source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/pieroproietti/${pkgname}/archive/v${pkgver}.tar.gz")
+sha256sums=('e97e24de48ec9369e5b3575c29f6191968c65402aa7c7f0b54c51b46fbca4497')
 
 options=('!strip')
 makedepends=('npm')
