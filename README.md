@@ -52,6 +52,8 @@ You can add the flag --backup: all users will be saved crypted in a LUKS volume 
 ## Copy your iso image and boot the son of your system
 You can use ventoy, simple USB with balena etcher or similar, iso file with proxmox ve, virtualbox, vmware etc.
 
+# Binaries
+It would be very useful to have the binaries for penguins-eggs and calamares freely created and shared by the community from the PKGBUILDs in AUR, if anyone wants to help can contact [me](https://t.me/penguins_eggs).
 
 # Develop and collaborations link
 * facebook group: [facebook group](https://www.facebook.com/groups/128861437762355)
