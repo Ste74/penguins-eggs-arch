@@ -25,7 +25,7 @@ makepkg -srcCi
 ## add calamares installer (optional)
 ```sudo eggs calamares --install```
 
-(*) Note: this option don't work at the moment on Arch.
+(*) Note: this option don't work at the moment on Arch, you can build it following [penguins-calamares-arch](https://github.com/pieroproietti/penguins-calamares-arch)
 
 ## Create your first iso (default)
 All the users will be removed from your live system.
