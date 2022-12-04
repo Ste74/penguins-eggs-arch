@@ -23,6 +23,7 @@ Per aggiornare, con un utente in possesso della chiave privata:
 
 ## .SRCINFO
 Prima di poter pubblicare occorre ri-creare il file .SRCINFO con il comando:
+
 ```makepkg --printsrcinfo > .SRCINFO```
 
  
