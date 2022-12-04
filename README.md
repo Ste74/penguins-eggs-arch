@@ -61,3 +61,18 @@ It would be very useful to have the binaries for penguins-eggs and calamares fre
 * penguins-eggs [sources](https://github.com/pieroproietti/penguins-eggs)
 * penguins-eggs [book](https://penguins-eggs.net/book/)
 * penguins-eggs [blog](https://penguins-eggs.net)
+
+# Pubblicare in AUR
+
+penguins-eggs è pubblicato su AUR alla pagina in sola lettura https://aur.archlinux.org/penguins-eggs.git
+
+per aggiornare, con un utente che ha la chiave privata, eseguire il clone di:
+
+```git clone ssh://aur@aur.archlinux.org/penguins-eggs.git```
+
+e procedere con i soliti comandi git.
+
+Prima di poter pubblicare occorre ri-creare il file .SRCINFO con il comando:
+```makepkg --printsrcinfo > .SRCINFO```
+
+ 
