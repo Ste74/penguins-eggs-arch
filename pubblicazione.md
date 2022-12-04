@@ -1,20 +1,26 @@
 # Pubblicazione in AUR
 
-penguins-eggs è pubblicato su AUR, lo si può trovare alla pagina:
+penguins-eggs è pubblicato su [AUR](https://aur.archlinux.org/packages/penguins-eggs) alla pagina:
+
 ```
 https://aur.archlinux.org/packages/penguins-eggs
 ```
 
-Loggandosi vi sono due link, uno in sola lettura:
+E' presente un link in sola lettura:
 
 ```
-https://aur.archlinux.org/penguins-eggs.git
+git clone https://aur.archlinux.org/penguins-eggs.git
 ```
 
 ed uno per lettura e scrittura:
+
 ```
-ssh://aur@aur.archlinux.org/penguins-eggs.git
+git clone ssh://aur@aur.archlinux.org/penguins-eggs.git
 ```
+
+Per clonare il repository in lettura e scrittura, è necessario essere in possesso della chiave.
+
+
 
 # Aggiornamento
 Per aggiornare, con un utente in possesso della chiave privata:
