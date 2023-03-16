@@ -11,17 +11,12 @@ arch=('any')
 url='https://penguins-eggs.net'
 license=('GPL2')
 
-#
-#
 # from branch (development)
 #_url="https://github.com/pieroproietti/penguins-eggs"
 #_branch="master"
 #source=("git+${_url}.git#branch=${_branch}")
 #sha256sums=('SKIP')
 
-#
-#
-#
 #pkgver() {
 #	cd ${srcdir}/${pkgname}
 #  grep 'version' package.json | awk 'NR==1 {print $2 }' | awk -F '"' '{print $2}'
@@ -31,8 +26,7 @@ license=('GPL2')
 
 # from release
 source=("${pkgname}-${pkgver}.tar.gz"::"https://github.com/pieroproietti/${pkgname}/archive/v${pkgver}.tar.gz")
-#sha256sums=('ea1468f54ad134f4dd91b84811a00668647627b00f9a26b43099418494ca70fb')
-sha256sums=('SKIP')
+sha256sums=('621f8712a3ae4b45db7991b8d1389cdd2b150ec8d1b9bfcd61697f9ad5147a74')
 
 options=('!strip')
 makedepends=('npm')
@@ -47,7 +41,6 @@ depends=(
   'libisoburn' 
   'lsb-release' 
   'lvm2' 
-  'mkinitcpio-archiso' 
   'mkinitcpio-nfs-utils' 
   'mtools' 
   'nbd' 
@@ -64,17 +57,18 @@ depends=(
   'xdg-utils'
 )
 
-#
-#
-# 
+# Check OS
+if [[ $(grep 'Manjaro' /etc/lsb-release) ]]; then
+	depends+=('manjaro-tools-iso')
+else
+	depends+=('mkinitcpio-archiso')
+fi
+ 
 optdepends=(
   'bash-completion: enable eggs commands automatic completion' 
   'calamares: system installer GUI' 
 )
 
-#
-#
-# 
 build() {
   cd "${pkgname}-${pkgver}"
   # Install pnpm into "pnpm-dir"
@@ -84,10 +78,7 @@ build() {
   pnpm-dir/bin/pnpm install
   pnpm-dir/bin/pnpm build
 }
-
-#
-#
-# 
+ 
 package() {
   cd "${pkgname}-${pkgver}"
 
