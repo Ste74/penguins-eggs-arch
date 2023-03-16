@@ -16,6 +16,7 @@ license=('GPL2')
 # from branch (develop)
 _url="https://github.com/pieroproietti/penguins-eggs"
 _branch="master"
+_branch="arch-manjaro"
 source=("git+${_url}.git#branch=${_branch}")
 sha256sums=('SKIP')
 
