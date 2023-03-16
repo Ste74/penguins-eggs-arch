@@ -15,8 +15,7 @@ license=('GPL2')
 #
 # from branch (development)
 _url="https://github.com/pieroproietti/penguins-eggs"
-#_branch="master"
-_branch="arch-manjaro"
+_branch="master"
 source=("git+${_url}.git#branch=${_branch}")
 sha256sums=('SKIP')
 
@@ -37,30 +36,30 @@ pkgver() {
 options=('!strip')
 makedepends=('npm')
 depends=(
-  'arch-install-scripts' \
-  'dosfstools' \
-  'erofs-utils' \
-  'findutils' \
-  'grub' \
-  'jq' \
-  'libarchive' \
-  'libisoburn' \
-  'lsb-release' \
-  'lvm2' \
-  'mkinitcpio-archiso' \
-  'mkinitcpio-nfs-utils' \
-  'mtools' \
-  'nbd' \
-  'nodejs' \
-  'pacman-contrib' \
-  'parted' \
-  'procps-ng' \
-  'pv' \
-  'python' \
-  'rsync' \
-  'squashfs-tools' \
-  'sshfs' \
-  'syslinux' \
+  'arch-install-scripts' 
+  'dosfstools' 
+  'erofs-utils' 
+  'findutils' 
+  'grub' 
+  'jq' 
+  'libarchive' 
+  'libisoburn' 
+  'lsb-release' 
+  'lvm2' 
+  'mkinitcpio-archiso' 
+  'mkinitcpio-nfs-utils' 
+  'mtools' 
+  'nbd' 
+  'nodejs' 
+  'pacman-contrib' 
+  'parted' 
+  'procps-ng' 
+  'pv' 
+  'python' 
+  'rsync' 
+  'squashfs-tools' 
+  'sshfs' 
+  'syslinux' 
   'xdg-utils'
 )
 
@@ -68,8 +67,8 @@ depends=(
 #
 # 
 optdepends=(
-  'bash-completion: enable eggs commands automatic completion' \
-  'calamares: system installer GUI' \
+  'bash-completion: enable eggs commands automatic completion' 
+  'calamares: system installer GUI' 
 )
 
 #
@@ -127,4 +126,3 @@ package() {
   # Install icons
   install -m 644 -D assets/eggs.png -t "${pkgdir}/usr/share/pixmaps/"
 }
-

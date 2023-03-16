@@ -34,7 +34,7 @@ pkgbase = penguins-eggs
 	optdepends = bash-completion: enable eggs commands automatic completion
 	optdepends = calamares: system installer GUI
 	options = !strip
-	source = git+https://github.com/pieroproietti/penguins-eggs.git#branch=arch-manjaro
+	source = git+https://github.com/pieroproietti/penguins-eggs.git#branch=master
 	sha256sums = SKIP
 
 pkgname = penguins-eggs
